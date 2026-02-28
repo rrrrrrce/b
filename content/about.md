@@ -4,7 +4,7 @@ date = 2025-01-01T00:00:00+08:00
 +++
 
 <div class="about-avatar">
-  <img src="/images/avatar.png" alt="portrait" />
+  <img src="../images/avatar.png" alt="portrait" />
 </div>
 
 <p>学术主页：<a href="https://profile.example.com" target="_blank" rel="noopener">profile.example.com</a></p>

@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main class="post-main">
-  <header class="post-header{{ if eq .RelPermalink "/about/" }} about-header{{ end }}">
+  <header class="post-header{{ if hasSuffix .RelPermalink "/about/" }} about-header{{ end }}">
     <h1 class="post-title">{{ .Title }}</h1>
-    {{ if ne .RelPermalink "/about/" }}
+    {{ if not (hasSuffix .RelPermalink "/about/") }}
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
       {{ with .Params.categories }}

@@ -1,22 +1,22 @@
 (function() {
   var images = [
-    '/images/works-display/dangiuz-10.jpg?v=20260228h',
-    '/images/works-display/dangiuz-100.jpg?v=20260228h',
-    '/images/works-display/dangiuz-101.jpg?v=20260228h',
-    '/images/works-display/dangiuz-102.jpg?v=20260228h',
-    '/images/works-display/dangiuz-105.jpg?v=20260228h',
-    '/images/works-display/dangiuz-106.jpg?v=20260228h',
-    '/images/works-display/dangiuz-107.jpg?v=20260228h',
-    '/images/works-display/dangiuz-108.jpg?v=20260228h',
-    '/images/works-display/dangiuz-109.jpg?v=20260228h',
-    '/images/works-display/dangiuz-13.jpg?v=20260228h',
-    '/images/works-display/dangiuz-135.jpg?v=20260228h',
-    '/images/works-display/dangiuz-141.jpg?v=20260228h',
-    '/images/works-display/dangiuz-142.jpg?v=20260228h',
-    '/images/works-display/dangiuz-145.jpg?v=20260228h',
-    '/images/works-display/dangiuz-147.jpg?v=20260228h',
-    '/images/works-display/dangiuz-152.jpg?v=20260228h',
-    '/images/works-display/dangiuz-158.jpg?v=20260228h',
+    'images/works-display/dangiuz-10.jpg?v=20260228h',
+    'images/works-display/dangiuz-100.jpg?v=20260228h',
+    'images/works-display/dangiuz-101.jpg?v=20260228h',
+    'images/works-display/dangiuz-102.jpg?v=20260228h',
+    'images/works-display/dangiuz-105.jpg?v=20260228h',
+    'images/works-display/dangiuz-106.jpg?v=20260228h',
+    'images/works-display/dangiuz-107.jpg?v=20260228h',
+    'images/works-display/dangiuz-108.jpg?v=20260228h',
+    'images/works-display/dangiuz-109.jpg?v=20260228h',
+    'images/works-display/dangiuz-13.jpg?v=20260228h',
+    'images/works-display/dangiuz-135.jpg?v=20260228h',
+    'images/works-display/dangiuz-141.jpg?v=20260228h',
+    'images/works-display/dangiuz-142.jpg?v=20260228h',
+    'images/works-display/dangiuz-145.jpg?v=20260228h',
+    'images/works-display/dangiuz-147.jpg?v=20260228h',
+    'images/works-display/dangiuz-152.jpg?v=20260228h',
+    'images/works-display/dangiuz-158.jpg?v=20260228h',
   ];
 
   function pickHeroOnce() {
@@ -36,7 +36,11 @@
       hero.style.opacity = '1';
       hero.onload = null;
     };
-    hero.src = images[idx];
+    var base = window.__siteBase || '/';
+    if (base.slice(-1) !== '/') {
+      base += '/';
+    }
+    hero.src = base + images[idx];
   }
 
   if (document.readyState === 'loading') {

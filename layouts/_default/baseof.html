@@ -16,13 +16,16 @@
   </script>
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.subtitle }}{{ end }}" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href='{{ "css/style.css" | relURL }}' />
 </head>
 <body>
-  <article class="site-article{{ if eq .RelPermalink "/about/" }} about-page{{ end }}">
-    {{ if ne .RelPermalink "/about/" }}
+  <script>
+    window.__siteBase = '{{ .Site.Home.RelPermalink }}';
+  </script>
+  <article class="site-article{{ if hasSuffix .RelPermalink "/about/" }} about-page{{ end }}">
+    {{ if not (hasSuffix .RelPermalink "/about/") }}
     <header>
-      <div class="header-title"><a href="/">{{ .Site.Title }}</a></div>
+      <div class="header-title"><a href='{{ .Site.Home.RelPermalink }}'>{{ .Site.Title }}</a></div>
       <div class="header-subtitle">{{ .Site.Params.subtitle }}</div>
     </header>
     {{ end }}
@@ -37,7 +40,7 @@
     </nav>
     <div class="header-line"></div>
 
-    {{ if ne .RelPermalink "/about/" }}
+    {{ if not (hasSuffix .RelPermalink "/about/") }}
     <div class="hero-image-container">
       <img id="hero-image" src="" alt="banner" class="hero-image" />
     </div>
@@ -47,7 +50,7 @@
 
   </article>
 
-  <script src="/js/theme-toggle.js"></script>
-  <script src="/js/random-hero.js"></script>
+  <script src='{{ "js/theme-toggle.js" | relURL }}'></script>
+  <script src='{{ "js/random-hero.js" | relURL }}'></script>
 </body>
 </html>
