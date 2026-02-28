@@ -1,22 +1,22 @@
 (function() {
   var images = [
-    'images/works-display/dangiuz-10.jpg?v=20260228h',
-    'images/works-display/dangiuz-100.jpg?v=20260228h',
-    'images/works-display/dangiuz-101.jpg?v=20260228h',
-    'images/works-display/dangiuz-102.jpg?v=20260228h',
-    'images/works-display/dangiuz-105.jpg?v=20260228h',
-    'images/works-display/dangiuz-106.jpg?v=20260228h',
-    'images/works-display/dangiuz-107.jpg?v=20260228h',
-    'images/works-display/dangiuz-108.jpg?v=20260228h',
-    'images/works-display/dangiuz-109.jpg?v=20260228h',
-    'images/works-display/dangiuz-13.jpg?v=20260228h',
-    'images/works-display/dangiuz-135.jpg?v=20260228h',
-    'images/works-display/dangiuz-141.jpg?v=20260228h',
-    'images/works-display/dangiuz-142.jpg?v=20260228h',
-    'images/works-display/dangiuz-145.jpg?v=20260228h',
-    'images/works-display/dangiuz-147.jpg?v=20260228h',
-    'images/works-display/dangiuz-152.jpg?v=20260228h',
-    'images/works-display/dangiuz-158.jpg?v=20260228h',
+    'images/works-banner/banner-001.jpg?v=20260228i',
+    'images/works-banner/banner-002.jpg?v=20260228i',
+    'images/works-banner/banner-003.jpg?v=20260228i',
+    'images/works-banner/banner-004.jpg?v=20260228i',
+    'images/works-banner/banner-005.jpg?v=20260228i',
+    'images/works-banner/banner-006.jpg?v=20260228i',
+    'images/works-banner/banner-007.jpg?v=20260228i',
+    'images/works-banner/banner-008.jpg?v=20260228i',
+    'images/works-banner/banner-009.jpg?v=20260228i',
+    'images/works-banner/banner-010.jpg?v=20260228i',
+    'images/works-banner/banner-011.jpg?v=20260228i',
+    'images/works-banner/banner-012.jpg?v=20260228i',
+    'images/works-banner/banner-013.jpg?v=20260228i',
+    'images/works-banner/banner-014.jpg?v=20260228i',
+    'images/works-banner/banner-015.jpg?v=20260228i',
+    'images/works-banner/banner-016.jpg?v=20260228i',
+    'images/works-banner/banner-017.jpg?v=20260228i',
   ];
 
   function pickHeroOnce() {
@@ -31,11 +31,6 @@
     hero.dataset.heroLocked = '1';
 
     var idx = Math.floor(Math.random() * images.length);
-    hero.style.opacity = '0';
-    hero.onload = function() {
-      hero.style.opacity = '1';
-      hero.onload = null;
-    };
     var base = window.__siteBase || '/';
     if (base.slice(-1) !== '/') {
       base += '/';
