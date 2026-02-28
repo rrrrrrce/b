@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.subtitle }}{{ end }}" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <article class="site-article{{ if eq .RelPermalink "/about/" }} about-page{{ end }}">
+    {{ if ne .RelPermalink "/about/" }}
+    <header>
+      <div class="header-title"><a href="/">{{ .Site.Title }}</a></div>
+      <div class="header-subtitle">{{ .Site.Params.subtitle }}</div>
+    </header>
+    {{ end }}
+
+    <nav class="header-items">
+      {{ range .Site.Menus.main }}
+        <span class="header-item"><a href="{{ .URL }}"><b>{{ .Name }}</b></a></span>
+      {{ end }}
+      <span class="header-item">
+        <a href="#darkmode" id="theme-toggle"><b>深色</b></a>
+      </span>
+    </nav>
+    <div class="header-line"></div>
+
+    {{ if ne .RelPermalink "/about/" }}
+    <div class="hero-image-container">
+      <img id="hero-image" src="" alt="banner" class="hero-image" />
+    </div>
+    {{ end }}
+
+    {{ block "main" . }}{{ end }}
+
+  </article>
+
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/random-hero.js"></script>
+</body>
+</html>

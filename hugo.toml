@@ -1,0 +1,45 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'zh-cn'
+title = 'Payioad'
+timeZone = 'Asia/Shanghai'
+
+[params]
+subtitle = '永远有改变世界的勇气'
+heroImages = [
+  '/images/hero-1.svg',
+  '/images/hero-2.svg',
+  '/images/hero-3.svg',
+  '/images/hero-4.svg'
+]
+
+[params.giscus]
+enabled = true
+repo = 'rrrrrrce/comment'
+repoId = 'R_kgDORa_chA'
+category = 'Announcements'
+categoryId = 'DIC_kwDORa_chM4C3ZKt'
+mapping = 'pathname'
+reactionsEnabled = '1'
+emitMetadata = '0'
+inputPosition = 'top'
+lang = 'zh-CN'
+
+[[menus.main]]
+name = '分类'
+url = '/categories/'
+weight = 10
+
+[[menus.main]]
+name = '书单'
+url = '/booklist/'
+weight = 20
+
+[[menus.main]]
+name = '关于'
+url = '/about/'
+weight = 60
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,44 @@
+{{ define "main" }}
+<main class="post-main">
+  <header class="post-header{{ if eq .RelPermalink "/about/" }} about-header{{ end }}">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ if ne .RelPermalink "/about/" }}
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      {{ with .Params.categories }}
+        <span class="post-tag">{{ index . 0 }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  <section class="post-content markdown-body">
+    {{ .Content }}
+  </section>
+
+  <section class="comments-section">
+    <h2 class="comments-title">评论</h2>
+    {{ if and .Site.Params.giscus.enabled .Site.Params.giscus.repo .Site.Params.giscus.repoId .Site.Params.giscus.category .Site.Params.giscus.categoryId }}
+      <script
+        src="https://giscus.app/client.js"
+        data-repo="{{ .Site.Params.giscus.repo }}"
+        data-repo-id="{{ .Site.Params.giscus.repoId }}"
+        data-category="{{ .Site.Params.giscus.category }}"
+        data-category-id="{{ .Site.Params.giscus.categoryId }}"
+        data-mapping="{{ .Site.Params.giscus.mapping }}"
+        data-strict="0"
+        data-reactions-enabled="{{ .Site.Params.giscus.reactionsEnabled }}"
+        data-emit-metadata="{{ .Site.Params.giscus.emitMetadata }}"
+        data-input-position="{{ .Site.Params.giscus.inputPosition }}"
+        data-theme="light"
+        data-lang="{{ .Site.Params.giscus.lang }}"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+      </script>
+    {{ else }}
+      <p class="comments-hint">未启用 giscus。请在 <code>hugo.toml</code> 的 <code>[params.giscus]</code> 中填写配置。</p>
+    {{ end }}
+  </section>
+</main>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main id="posts-list" class="home-posts-list">
+  {{ range (where .Site.RegularPages "Section" "posts").GroupByDate "2006" }}
+    <section>
+      <h1 class="site-date-catalog">{{ .Key }}</h1>
+      {{ range .Pages }}
+      <div class="posts-line">
+        <div class="posts-date">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02" }}</time>
+        </div>
+        <div class="posts-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ with .Params.categories }}
+            {{ $cat := index . 0 }}
+            <span class="posts-category">{{ $cat }}</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </section>
+  {{ end }}
+</main>
+{{ end }}
