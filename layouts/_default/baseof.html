@@ -42,7 +42,7 @@
 
     {{ if not (hasSuffix .RelPermalink "/about/") }}
     <div class="hero-image-container">
-      <img id="hero-image" src="" alt="banner" class="hero-image" />
+      <img id="hero-image" src='{{ "images/works-banner/banner-001.jpg" | relURL }}' alt="banner" class="hero-image" loading="eager" decoding="async" fetchpriority="high" />
     </div>
     {{ end }}
 
